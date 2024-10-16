@@ -16,9 +16,11 @@ class Price(BaseModel):
 
 @app.get("/")
 def home():
-    return {
-        "message": "Calculate the total amount to be paid per person on the route: /price"
-    }
+    return JSONResponse(
+        content=jsonable_encoder(
+            {"message": "Calculate the total amount to be paid per person on the route: /price"}
+        )
+    )
 
 
 # Error handler: incorrect data entered by the user
