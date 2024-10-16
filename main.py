@@ -51,4 +51,8 @@ def price_to_pay(price: Price):
     total_tip = (price.tip * price.price) / 100
     total_price = (total_tip + price.price) / price.people
     result = round(total_price, 2)
-    return {"result": f"Total price per person: {result}"}
+    return JSONResponse(
+        content=jsonable_encoder(
+            {"result": f"Total price per person: {result}"}
+        )
+    )
